@@ -1,19 +1,23 @@
-import { useState } from 'react';
-
-import { IToastMessage } from '@/types/toast-message.d';
-
 import styles from './style.module.css';
+import { IToastMessage } from '@/types/toast-message';
+import { useMessageContext } from '@/hooks/message-type';
 
-type ToastMessageProps = {
-	content: IToastMessage;
-};
+interface ToastMessageProps {
+  content: IToastMessage;
+}
 
-export const ToastMessage: React.FC<ToastMessageProps> = ({ content: data }) => {
-	return (
-		<div className={styles.container} data-toast-type={data.type} data-toast-id={data.id}>
-			<span data-content>{data.message}</span>
+export const ToastMessage = ({ content }: ToastMessageProps) => {
+  const { removeMessage } = useMessageContext();
 
-			<span data-close>╳</span>
+  const handleClose = () => {
+    removeMessage(content.id);
+  };
+
+  return (
+    <div className={styles.container} data-toast-type={content.type} data-toast-id={content.id}>
+			<span data-content>{content.message}</span>
+
+			<span onClick={handleClose} data-close>╳</span>
 		</div>
-	);
+  );
 };
