@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import '@/styles/globals.css';
 import { AppProvider } from '@/contexts/user-list';
+import { ToasterProvider } from '@/contexts/message-type';
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
@@ -12,7 +13,9 @@ export default function App({ Component, pageProps }: AppProps) {
 			</Head>
 
 			<AppProvider>
-				<Component {...pageProps} />
+				<ToasterProvider>
+					<Component {...pageProps} />
+				</ToasterProvider>
 			</AppProvider>
 
 		</>

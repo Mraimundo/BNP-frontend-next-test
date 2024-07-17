@@ -8,30 +8,22 @@
  */
 
 import styles from '@/styles/context-api.module.css';
-import { IToastMessage } from '@/types/toast-message';
 import { ToastMessage } from '@/components/ToastMessage';
+import { useMessageContext } from '@/hooks/message-type/message-type';
+import { useToast } from '@/hooks/message-type/use-toast';
 
 export default function ContextApi() {
-	const messages: Array<IToastMessage> = [
-		{
-			id: '1',
-			message: 'Mensagem de sucesso',
-			type: 'success',
-		},
-		{
-			id: '2',
-			message: 'Mensagem de erro',
-			type: 'error',
-		},
-	];
+	const { messages } = useMessageContext();
 
-	function handleSuccessButtonClick() {
-		alert('Method: handleSuccessButtonClick not implemented');
-	}
+  const { showToast } = useToast();
 
-	function handleErrorButtonClick() {
-		alert('Method: handleErrorButtonClick not implemented');
-	}
+	const handleSuccessButtonClick = () => {
+    showToast('Mensagem de sucesso', 'success');
+  };
+
+  const handleErrorButtonClick = () => {
+    showToast('Mensagem de erro', 'error');
+  };
 
 	return (
 		<>
