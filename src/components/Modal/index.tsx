@@ -34,9 +34,13 @@ export const Modal: React.FC<ModalProps> = ({ children, title, isOpen, ...props 
 
 	if (!isOpen) return null;
 
+	function stopPropagationModal(event: React.MouseEvent<HTMLDivElement>) {
+		event.stopPropagation();
+	}
+
 	return (
 		<div data-modal-wrapper className={styles.wrapper} onClick={handleCloseClick} onKeyDown={handleKeyDown}>
-			<div data-modal-container>
+			<div data-modal-container onClick={stopPropagationModal}>
 				<header data-modal-header>
 					<h2>{title}</h2>
 
