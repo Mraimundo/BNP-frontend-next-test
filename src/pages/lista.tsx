@@ -6,40 +6,42 @@
  * - Renderizar a lista de usuários
  */
 
-import { useEffect, useState } from 'react';
 
+import { useUserList } from '@/hooks/user-list';
+import { SpinnerCircle } from '@/components/SpinnerCircle';
 import styles from '@/styles/lista.module.css';
-import { IUser } from '@/types/user';
 
 export default function Lista() {
-	const [users, setUsers] = useState<Array<IUser>>([]);
+	const { users, isLoading } = useUserList();
 
-	async function getUsersList() {
-		try {
-			const response = await fetch('/api/users');
-			const data = await response.json();
-
-			if (!response.ok) throw new Error('Erro ao obter os dados');
-
-			setUsers(data);
-		} catch (error) {
-			console.error(error);
-		}
-	}
-
-	useEffect(() => {
-		getUsersList();
-	}, []);
+	if (isLoading) {
+    return <SpinnerCircle/>;
+  }
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.content}>
 				<h2>Lista de usuários</h2>
 
-				<div data-list-container>
-					{/* Exemplo */}
-					<div data-list-item>ID 323 - Usuário 323 (user-323@mail.com)</div>
-				</div>
+				<table className={styles.tableContainer}>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nome </th>
+              <th>E-mail</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            {users?.map((user) => (
+              <tr key={user.id}>
+                <th>{user.id}</th>
+                <th>{user.name}</th>
+                <th>{user.email}</th>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 			</div>
 		</div>
 	);

@@ -23,3 +23,47 @@
 	row-gap: 1rem;
 	flex-direction: column;
 }
+
+.tableContainer {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 0.5rem;
+  padding: 1rem 0rem;
+}
+
+.tableContainer th {
+  padding: 1rem 1rem;
+  background: #29292e;
+	color: #fff
+}
+
+.tableContainer th:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+.tableContainer th:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.tableContainer thead th {
+  font-size: 1rem;
+  @media (max-width: 328px) {
+    font-size: 0.875rem;
+  }
+}
+
+.tableContainer tbody th {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tableContainer thead th:first-child {
+  text-align: center;
+}
+
+
+.tableContainer tbody th:first-child {
+  text-align: left;
+}
