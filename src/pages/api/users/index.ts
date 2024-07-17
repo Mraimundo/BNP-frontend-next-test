@@ -11,11 +11,21 @@
  */
 
 import { NextApiRequest, NextApiResponse } from 'next/types';
-
+import { faker } from '@faker-js/faker';
 import { IUser } from '@/types/user.d';
 
 export default (req: NextApiRequest, res: NextApiResponse) => {
-	const users: Array<unknown> = [];
+	if (req.method === 'GET') {
+		
+    const users: IUser[] = Array.from({ length: 5 }, () => ({
+      id: faker.string.uuid(),
+      name: faker.person.fullName(),
+      email: faker.internet.email(),
+    }));
 
-	return res.status(500).json(users);
+    return res.status(200).json(users);
+  } else {
+    res.setHeader('Allow', ['GET']);
+    return res.status(405).end(`Method ${req.method} Not Allowed`);
+  }
 };
