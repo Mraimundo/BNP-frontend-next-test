@@ -9,27 +9,86 @@
  * - Lide com os possíveis erros
  */
 
-import styles from '@/styles/formulario.module.css';
+import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import styles from "@/styles/formulario.module.css";
+
+const createUserFormSchema = z.object({
+  name: z.string().min(2, "Nome é obrigatório"),
+  email: z.string().email("E-mail inválido").min(5, "E-mail é obrigatório"),
+});
+
+type CreateUserFormSchema = z.infer<typeof createUserFormSchema>;
 
 export default function Form() {
-	function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
-		event.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    formState: { isSubmitting, errors },
+    reset,
+  } = useForm<CreateUserFormSchema>({
+    resolver: zodResolver(createUserFormSchema),
+  });
 
-		console.log('submit');
-	}
+  async function handleSubmitCreateUser(data: CreateUserFormSchema) {
+    try {
+      const response = await fetch("/api/users/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
 
-	return (
-		<div className={styles.container}>
-			<div className={styles.content}>
-				<form onSubmit={handleSubmit}>
-					<input type="text" placeholder="Name" />
-					<input type="email" placeholder="E-mail" />
+        body: JSON.stringify(data),
+      });
 
-					<button type="submit" data-type="confirm">
-						Enviar
-					</button>
-				</form>
-			</div>
-		</div>
-	);
+      if (!response.ok) {
+        throw new Error("Erro ao criar usuário");
+      }
+
+      alert("Usuário criado com sucesso");
+
+      reset();
+    } catch (error) {
+      if (error instanceof Error) {
+        alert(error.message);
+      } else {
+        alert("Ocorreu um erro desconhecido");
+      }
+    }
+  }
+
+  return (
+    <div className={styles.container}>
+      <div className={styles.content}>
+        <form onSubmit={handleSubmit(handleSubmitCreateUser)}>
+          <input
+            {...register("name")}
+            type="text"
+            placeholder="Name"
+            className={errors.name ? styles.errorBorder : ""}
+          />
+
+          {errors.name && (
+            <span className={styles.error}>{errors.name.message}</span>
+          )}
+
+          <input
+            {...register("email")}
+            type="email"
+            placeholder="E-mail"
+            className={errors.email ? styles.errorBorder : ""}
+          />
+
+          {errors.email && (
+            <span className={styles.error}>{errors.email.message}</span>
+          )}
+
+          <button type="submit" disabled={isSubmitting} data-type="confirm">
+            Enviar
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 }
