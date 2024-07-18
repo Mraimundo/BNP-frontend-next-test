@@ -33,10 +33,6 @@ export function UserListProvider(props: UserListProviderProps) {
     loadUsersList();
   }, [loadUsersList]);
 
-  // if (isLoading) {
-  //   return <Loader isLoading={isLoading} />;
-  // }
-
   return (
     <UserListContext.Provider
       value={{
