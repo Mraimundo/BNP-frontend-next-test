@@ -8,6 +8,7 @@
  */
 
 import { GetStaticProps } from 'next';
+import Head from 'next/head';
 import styles from '@/styles/lista.module.css';
 import { ICity } from '@/types/city.d';
 
@@ -18,18 +19,23 @@ interface ListaProps {
 export default function Lista({ list }: ListaProps) {
 	
 	return (
-		<div className={styles.container}>
-			<div className={styles.content}>
-				<h2>Lista de cidades</h2>
-				<div data-list-container>
-					{list?.map((city) => (
-						<div data-list-item key={city.id}>
-							{city.name}
-						</div>
-					))}
+		<>
+			<Head>
+				<title>Pagina Estática</title>
+			</Head>
+			<div className={styles.container}>
+				<div className={styles.content}>
+					<h2>Lista de cidades</h2>
+					<div data-list-container>
+						{list?.map((city) => (
+							<div data-list-item key={city.id}>
+								{city.name}
+							</div>
+						))}
+					</div>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
 
