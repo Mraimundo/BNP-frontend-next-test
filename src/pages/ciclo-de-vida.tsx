@@ -16,6 +16,7 @@
  */
 
 import { GetServerSideProps } from 'next/types';
+import Head from 'next/head';
 import { useEffect, useState, useCallback } from 'react';
 import styles from '@/styles/ciclo-de-vida.module.css';
 import { Counter } from '@/components/Counter';
@@ -57,23 +58,29 @@ export default function CicloDeVida({ initialCount }: CicloDeVidaProps) {
   }, []);
 
   return (
-    <div className={styles.container}>
-      <div>
-        <button type="button" onClick={handleOcultCounterClick}>
-          {showCounter ? 'Ocultar contador' : 'Mostrar contador'}
-        </button>
+    <>
+      <Head>
+				<title>Ciclo de vida de umm componente</title>
+			</Head>
 
-        {showCounter && (
-          <>
-            <h1>Exemplo de Ciclo de vida</h1>
+      <div className={styles.container}>
+        <div>
+          <button type="button" onClick={handleOcultCounterClick}>
+            {showCounter ? 'Ocultar contador' : 'Mostrar contador'}
+          </button>
 
-            <div data-content>
-              <Counter initialCount={initialCount} onCountUpdate={setCount} />
-            </div>
-          </>
-        )}
+          {showCounter && (
+            <>
+              <h1>Exemplo de Ciclo de vida</h1>
+
+              <div data-content>
+                <Counter initialCount={initialCount} onCountUpdate={setCount} />
+              </div>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 
