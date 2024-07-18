@@ -1,38 +1,102 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 💻 Teste BNP Soluções em TI Frontend-nextjs
 
-## Getting Started
+Bem-vindo ao teste para desenvolvimento front-end no Grupo BNP Soluções em TI.
 
-First, run the development server:
+## O teste
+
+Esse projeto foi desenvolvido para demostrar as minhas habilidades técnicas em React e Nextjs, TypeScript e manipulação de API.
+
+![nextjs](https://github.com/user-attachments/assets/c1de8a82-03e2-4bd9-8812-f637164d00b0)
+
+Neste teste foi demostrado habilidades em gerênciamento de estados, conhecimento de componentização, manipulação de API, gerenciamento de formulário e validações de dados, criação de context api, listas utilizando `map`, `filter`, css, entre outros.
+
+O foco deste teste tem como objetivo avaliar os meus conhecimento e experiência em desenvolvimento com NextJS, bem como minhas habilidades em resolver problemas
+
+<hr/>
+
+## 🎨 Layout
+![list](https://github.com/user-attachments/assets/2db04a69-6e24-418b-a56a-c1c9615ce709)
+
+<hr/>
+
+# Deploy da Aplicação :dash:
+
+>  <a href="https://desafio-react-frontend-junior.vercel.app/" target='_blank'>Link do deploy da aplicação<a/>
+
+<hr/>
+
+## Features
+
+### Backend
+
+- [x] Create an API that returns a list of users;
+- [x] Create an API that registers a user in the users array;
+
+### Frontend
+
+- [x] ignore if the user clicks on any element within the modal;
+- [ ] Create a component for the confirmation modal;
+- [x] Get list of API users;
+- [x] Form manipulation;
+- [x] Create a context to display success and error messages;
+- [x] turn the page into a static page;
+- [ ] page lifecycle;
+      
+<hr/>
+ 
+# Resolvendo Problemas :exclamation:
+
+Um dos principais problemas que me deparei ao longo do desenvolvimento foi a configuração dos testes que acabou não dando certo. 
+
+<hr/>
+
+# Tarefas em aberto
+
+:memo: Aplicar Testes Unitário e Integração
+
+
+<hr/>
+
+# :rocket: Tecnologias
+
+-  [React](https://react.dev/learn)
+-  [Nextjs](https://nextjs.org/docs)
+-  [TypeScript](https://www.typescriptlang.org/)
+-  [react-hook-form](https://react-hook-form.com/docs)
+-  [zod](https://zod.dev/?id=installation)
+-  [@hookform/resolvers](https://www.npmjs.com/package/@hookform/resolvers)
+-  [Sonner](https://sonner.emilkowal.ski/getting-started)
+-  [@faker-js/faker](https://fakerjs.dev/guide/)
+
+#  Instalação e execução
+
+
+### Pré-requisitos
+
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/) de preferência na versão 14^+. 
+Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
+
+## :notebook: Executando
+
+O **README** mostra como executar as aplicação.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+# Clone este repositório
+$ [SSH] git clone git@github.com:Mraimundo/BNP-frontend-next-test.gitt
+$ [HTTPS] git clone https://github.com/Mraimundo/BNP-frontend-next-test.git
+
+# Acesse a pasta do projeto no seu terminal/cmd
+$ cd frontend-nextjs-test
+
+Portanto depois de clonar o repositório digite em seu terminal para instalar as dependências:
+$  pnpm install, npm install ou yarn add
+
+# Execute a aplicação frontend
+$ npm run dev, yarn dev
+
+$ em seguida [localhost:3000](http://localhost:3000) ou [localhost:8080](http://localhost:8080/) em seu navegador para visualizar o aplicativo.
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feito com horas em frente ao :computer: por [Mouzinho Raimundo](https://www.linkedin.com/in/mouzinho-raimundo/)
