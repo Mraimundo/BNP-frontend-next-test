@@ -21,7 +21,7 @@ O foco deste teste tem como objetivo avaliar os meus conhecimento e experiência
 
 # Deploy da Aplicação :dash:
 
->  <a href="https://desafio-react-frontend-junior.vercel.app/" target='_blank'>Link do deploy da aplicação<a/>
+>  <a href="https://bnp-frontend-next-test.vercel.app/" target='_blank'>Link do deploy da aplicação<a/>
 
 <hr/>
 
@@ -35,25 +35,25 @@ O foco deste teste tem como objetivo avaliar os meus conhecimento e experiência
 ### Frontend
 
 - [x] ignore if the user clicks on any element within the modal;
-- [ ] Create a component for the confirmation modal;
+- [x] Create a component for the confirmation modal;
 - [x] Get list of API users;
 - [x] Form manipulation;
 - [x] Create a context to display success and error messages;
 - [x] turn the page into a static page;
-- [ ] page lifecycle;
+- [x] page lifecycle;
       
 <hr/>
  
 # Resolvendo Problemas :exclamation:
 
-Um dos principais problemas que me deparei ao longo do desenvolvimento foi a configuração dos testes que acabou não dando certo. 
+Um dos principais problemas que me deparei ao longo do desenvolvimento foi a configuração dos testes causando erros de eslint, que acabou não dando certo. 
 
 <hr/>
 
 # Tarefas em aberto
 
 :memo: Aplicar Testes Unitário e Integração
-
+:memo: Eventos disparados várias vezes
 
 <hr/>
 
