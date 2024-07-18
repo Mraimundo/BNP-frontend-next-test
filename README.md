@@ -53,7 +53,7 @@ Um dos principais problemas que me deparei ao longo do desenvolvimento foi a con
 # Tarefas em aberto
 
 :memo: Aplicar Testes Unitário e Integração
-:memo: Eventos disparados várias vezes
+:memo: Ciclo de vida de um componente, Eventos disparados várias vezes
 
 <hr/>
 
